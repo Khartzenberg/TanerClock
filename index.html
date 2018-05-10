@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+<style>
+	
+	body {
+    background: #bbb;
+    text-align: center;
+}
+	
+		  
+	 @font-face{
+  font-family:"AmnestyTradeGothicW04BdCnNo-20";
+  src:url("fonts/AmnestyTradeGothicW04BdCnNo-20.eot?#iefix");
+  src:url("fonts/AmnestyTradeGothicW04BdCnNo-20.eot?#iefix") format("eot"),url("fonts/AmnestyTradeGothicW04BdCnNo-20.woff") format("woff"),url("fonts/AmnestyTradeGothicW04BdCnNo-20.ttf") format("truetype"),url("fonts/AmnestyTradeGothicW04BdCnNo-20.svg#AmnestyTradeGothicW04BdCnNo-20") format("svg");
+}
+	  
+	html, body {
+		background-color: #a1a1a1;
+		padding-top:10px;
+	}
+	
+	
+p {
+  text-align: center;
+  
+  margin-top:0px;
+	font-family:  AmnestyTradeGothicW04BdCnNo-20;
+	max-width:600px;
+	margin: 0 auto;
+	    display: inline-block;
+    padding-top: 5px;
+
+    
+}
+		
+}
+	
+	.clock {	
+		font-size:5.2em;
+		color: #000;
+		
+		
+	}
+	
+	.container {
+		width:100%;
+	}
+	
+	.large {
+		font-size:9.5em;
+		color:white;
+	}
+	
+	.medium {
+		font-size:2.5em;
+		display:inherit;
+		margin-top:-30px;
+		
+	}
+	
+	.medium p {
+		
+		color:white;
+	}
+	
+	
+	
+	
+	.small {
+    font-size: 2.5em;
+    margin-top: -27px;
+    display: inherit;
+		color:white;
+}
+
+	#hours, #minutes, #seconds {
+		font-size:1.5em;
+		margin-right:-10px;
+	}
+	
+	#days {
+		padding-top:0px;
+		margin-top:-20px;
+	}
+	
+
+	
+</style>
+
+
+
+
+
+<script>
+/*
+* Basic Count Up from Date and Time
+* Author: @mrwigster / trulycode.com
+*/
+window.onload=function() {
+  // Month,Day,Year,Hour,Minute,Second
+  upTime('jun,07,2017,06:30:00'); // ****** Change this line!
+}
+function upTime(countTo) {
+  now = new Date();
+  countTo = new Date(countTo);
+  difference = (now-countTo);
+
+  days=Math.floor(difference/(60*60*1000*24)*1);
+  hours=Math.floor((difference%(60*60*1000*24))/(60*60*1000)*1);
+  mins=Math.floor(((difference%(60*60*1000*24))%(60*60*1000))/(60*1000)*1);
+  secs=Math.floor((((difference%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1);
+
+  document.getElementById('days').firstChild.nodeValue = days;
+  document.getElementById('hours').firstChild.nodeValue = hours;
+  document.getElementById('minutes').firstChild.nodeValue = mins;
+  document.getElementById('seconds').firstChild.nodeValue = secs;
+	
+	
+
+  clearTimeout(upTime.to);
+  upTime.to=setTimeout(function(){ upTime(countTo); },1000);
+}
+</script>
+
+
+<div style="display:block; font-size:1.6em;">
+<p>Honorary Chair of Amnesty Turkey, Taner Kılıç, has done nothing wrong. But he has been locked up in Turkey since 6 June 2017.</p>
+
+	</div>
+
+
+<div class="container">
+	<span class="large"><p id="days">00</p></span>
+	<br /><span class="medium"><p class="timeRefDays">DAYS</p></span>
+	</br>
+	
+	<span class="small">
+  <p id="hours">0</p>
+  <p class="timeRefHours">H</p>
+  <p id="minutes">00</p>
+  <p class="timeRefMinutes">M</p>
+  <p id="seconds">00</p>
+  <p class="timeRefSeconds">S</p>
+  </span>
+
+	</div>
+	
+	<div style="display:block; font-size:1.6em; margin-top:15px;">
+	<p>
+We’ll keep fighting this, and counting the days until Taner is free!</p>
+</div>
+
+
+
